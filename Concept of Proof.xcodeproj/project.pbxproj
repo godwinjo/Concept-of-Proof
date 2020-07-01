@@ -22,6 +22,7 @@
 		FA63787A24AC6487006A0DE6 /* ItemDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA63787924AC6487006A0DE6 /* ItemDetails.swift */; };
 		FA63787C24AC6680006A0DE6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA63787B24AC6680006A0DE6 /* Extensions.swift */; };
 		FA63787E24AC6696006A0DE6 /* ItemDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA63787D24AC6696006A0DE6 /* ItemDetailsTableViewCell.swift */; };
+		FA63788024AC68DC006A0DE6 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA63787F24AC68DC006A0DE6 /* HomeTableViewController.swift */; };
 		FAA73AB55FB2AC49E1F1878C /* Pods_Concept_of_Proof.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0CC32AC9D0497D7151E1505 /* Pods_Concept_of_Proof.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,7 @@
 		FA63787924AC6487006A0DE6 /* ItemDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetails.swift; sourceTree = "<group>"; };
 		FA63787B24AC6680006A0DE6 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		FA63787D24AC6696006A0DE6 /* ItemDetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		FA63787F24AC68DC006A0DE6 /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 		FA63787024AC6231006A0DE6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FA63787F24AC68DC006A0DE6 /* HomeTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -484,6 +487,7 @@
 				FA63784024AC61D4006A0DE6 /* AppDelegate.swift in Sources */,
 				FA63787A24AC6487006A0DE6 /* ItemDetails.swift in Sources */,
 				FA63784224AC61D4006A0DE6 /* SceneDelegate.swift in Sources */,
+				FA63788024AC68DC006A0DE6 /* HomeTableViewController.swift in Sources */,
 				FA63784424AC61D4006A0DE6 /* ContentView.swift in Sources */,
 				FA63787C24AC6680006A0DE6 /* Extensions.swift in Sources */,
 			);
