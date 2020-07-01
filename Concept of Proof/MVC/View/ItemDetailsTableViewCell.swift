@@ -16,15 +16,11 @@ class ItemDetailsTableViewCell: UITableViewCell {
     var labelTitle : UILabel!
     var labelDescription : UILabel!
     var imageViewItem : UIImageView!
-    var itemDetails : ItemDetails! {
-        didSet {
-            setValues()
-        }
-    }
+    var itemDetails : ItemDetails?
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.addItemsToView()
+//        self.addItemsToView()
         
     }
     
@@ -32,17 +28,19 @@ class ItemDetailsTableViewCell: UITableViewCell {
         super.prepareForReuse()
         self.labelTitle.text = nil
         self.labelDescription.text = nil
-        self.imageView?.image = nil
+        self.imageViewItem.image = nil
     }
     
 //MARK:- Add controls in the view
     func addItemsToView()  {
         initControlls()
         setConstrainsts()
+        setValues()
     }
     
 //    MARK:- Initialzing controlles
     func initControlls()  {
+        
         labelTitle = UILabel()
         labelDescription = UILabel()
         imageViewItem = UIImageView()
@@ -50,9 +48,9 @@ class ItemDetailsTableViewCell: UITableViewCell {
         labelDescription.numberOfLines = 0
         labelTitle.numberOfLines = 0
         labelTitle.textColor = .black
-        labelTitle.font = UIFont.boldSystemFont(ofSize: 12.0)
+        labelTitle.font = UIFont.boldSystemFont(ofSize: 16.0)
         labelDescription.textColor = .gray
-        labelDescription.font = UIFont.systemFont(ofSize: 12.0)
+        labelDescription.font = UIFont.systemFont(ofSize: 16.0)
         labelTitle.textAlignment = .center
         labelDescription.textAlignment = .center
         
@@ -78,23 +76,24 @@ class ItemDetailsTableViewCell: UITableViewCell {
         viewConstraints += labelDescriptionHorizontalContraints
         let imageViewItemHorizontalContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[imageViewItem]-10-|", options: [], metrics: nil, views: views as [String : Any])
         viewConstraints += imageViewItemHorizontalContraints
-        let verticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-10-[labelTitle(20)]-10-[labelDescription]-10-[imageViewItem]-10-|", options: [], metrics: nil, views: views as [String : Any])
+        let verticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-10-[labelTitle]-10-[labelDescription]-10-[imageViewItem]-10-|", options: [], metrics: nil, views: views as [String : Any])
         viewConstraints += verticalConstraints
         NSLayoutConstraint.activate(viewConstraints)
     }
     
 //    MARK:- Set Values
     func setValues()  {
-        labelTitle.text = itemDetails.itemTitle ?? ""
-        labelDescription.text = itemDetails.itemDescription ?? ""
-        if let imageUrl = itemDetails.itemImage {
-            imageViewItem.sd_setImage(with: URL(string: imageUrl)) { (image, error, cache, url) in
-                if let image = image {
-                    self.imageViewItem.image = image
+        if let details = itemDetails {
+            labelTitle.text = details.itemTitle ?? ""
+            labelDescription.text = details.itemDescription ?? ""
+            if let imageUrl = details.itemImage {
+                imageViewItem.sd_setImage(with: URL(string: imageUrl)) { (image, error, cache, url) in
+                    if let image = image {
+                        self.imageViewItem.image = image
+                    }
                 }
             }
         }
-        
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

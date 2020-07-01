@@ -62,8 +62,9 @@ extension HomeTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ItemDetailsTableViewCell.identifier, for: indexPath) as! ItemDetailsTableViewCell
-        cell.addItemsToView()
+        cell.selectionStyle = .none
         cell.itemDetails = item?.itemDetails![indexPath.row]
+        cell.addItemsToView()
         return cell
     }
     
