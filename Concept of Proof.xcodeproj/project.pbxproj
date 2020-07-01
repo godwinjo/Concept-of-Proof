@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,8 @@
 		FA63784C24AC61DA006A0DE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA63784A24AC61DA006A0DE6 /* LaunchScreen.storyboard */; };
 		FA63785724AC61DA006A0DE6 /* Concept_of_ProofTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA63785624AC61DA006A0DE6 /* Concept_of_ProofTests.swift */; };
 		FA63786224AC61DA006A0DE6 /* Concept_of_ProofUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA63786124AC61DA006A0DE6 /* Concept_of_ProofUITests.swift */; };
+		FA63787724AC63C5006A0DE6 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA63787524AC63C4006A0DE6 /* APIManager.swift */; };
+		FA63787824AC63C5006A0DE6 /* APIUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA63787624AC63C4006A0DE6 /* APIUrls.swift */; };
 		FAA73AB55FB2AC49E1F1878C /* Pods_Concept_of_Proof.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0CC32AC9D0497D7151E1505 /* Pods_Concept_of_Proof.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +63,8 @@
 		FA63785D24AC61DA006A0DE6 /* Concept of ProofUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Concept of ProofUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA63786124AC61DA006A0DE6 /* Concept_of_ProofUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concept_of_ProofUITests.swift; sourceTree = "<group>"; };
 		FA63786324AC61DA006A0DE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA63787524AC63C4006A0DE6 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		FA63787624AC63C4006A0DE6 /* APIUrls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIUrls.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +115,6 @@
 				3A76AD16ADB72EFEE59EE8EC /* Pods-Concept of ProofTests.debug.xcconfig */,
 				B5D17A633EA14E5FD6A58C39 /* Pods-Concept of ProofTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -214,6 +217,8 @@
 		FA63787324AC624B006A0DE6 /* Helper Classes */ = {
 			isa = PBXGroup;
 			children = (
+				FA63787624AC63C4006A0DE6 /* APIUrls.swift */,
+				FA63787524AC63C4006A0DE6 /* APIManager.swift */,
 			);
 			path = "Helper Classes";
 			sourceTree = "<group>";
@@ -464,6 +469,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA63787724AC63C5006A0DE6 /* APIManager.swift in Sources */,
+				FA63787824AC63C5006A0DE6 /* APIUrls.swift in Sources */,
 				FA63784024AC61D4006A0DE6 /* AppDelegate.swift in Sources */,
 				FA63784224AC61D4006A0DE6 /* SceneDelegate.swift in Sources */,
 				FA63784424AC61D4006A0DE6 /* ContentView.swift in Sources */,
