@@ -9,7 +9,7 @@
 import UIKit
 
 
-class Item: NSObject {
+struct Item  {
     
     var itemTitle :   String?
     var itemDetails : [ItemDetails]?
@@ -27,7 +27,7 @@ class Item: NSObject {
 
 }
 
-class ItemDetails: NSObject {
+struct ItemDetails {
     
     var itemTitle :        String?
     var itemDescription : String?

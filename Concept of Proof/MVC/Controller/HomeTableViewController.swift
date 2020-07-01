@@ -31,6 +31,11 @@ class HomeTableViewController: UITableViewController {
 //    MARK:- Get Items
     func getItems()  {
         APIManager.getItemsList { (status, result, error) in
+            
+            if error != nil {
+                self.showAlert(title: "Alert", message: error!.localizedDescription)
+                return
+            }
             if let dict = result {
                 self.item = Item(dict: dict)
             }
@@ -51,6 +56,7 @@ class HomeTableViewController: UITableViewController {
     
     
 }
+
 extension HomeTableViewController {
 //    MARK:- TableView DataSource
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -71,5 +77,14 @@ extension HomeTableViewController {
 //    MARK:- TableView Delegate
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+}
+
+extension HomeTableViewController {
+//    MARK:- Alert
+    func showAlert(title:String,message:String)  {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
