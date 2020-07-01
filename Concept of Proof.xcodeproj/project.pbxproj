@@ -1,0 +1,796 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4536B2ED29CD0193AE766C0B /* Pods_Concept_of_ProofTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B5D61357692B79F89F26F7 /* Pods_Concept_of_ProofTests.framework */; };
+		48165301E5CFE212B569B87E /* Pods_Concept_of_Proof_Concept_of_ProofUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 139C4CFC28C9F126D9BC512D /* Pods_Concept_of_Proof_Concept_of_ProofUITests.framework */; };
+		FA63784024AC61D4006A0DE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA63783F24AC61D4006A0DE6 /* AppDelegate.swift */; };
+		FA63784224AC61D4006A0DE6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA63784124AC61D4006A0DE6 /* SceneDelegate.swift */; };
+		FA63784424AC61D4006A0DE6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA63784324AC61D4006A0DE6 /* ContentView.swift */; };
+		FA63784624AC61DA006A0DE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA63784524AC61DA006A0DE6 /* Assets.xcassets */; };
+		FA63784924AC61DA006A0DE6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA63784824AC61DA006A0DE6 /* Preview Assets.xcassets */; };
+		FA63784C24AC61DA006A0DE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA63784A24AC61DA006A0DE6 /* LaunchScreen.storyboard */; };
+		FA63785724AC61DA006A0DE6 /* Concept_of_ProofTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA63785624AC61DA006A0DE6 /* Concept_of_ProofTests.swift */; };
+		FA63786224AC61DA006A0DE6 /* Concept_of_ProofUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA63786124AC61DA006A0DE6 /* Concept_of_ProofUITests.swift */; };
+		FAA73AB55FB2AC49E1F1878C /* Pods_Concept_of_Proof.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0CC32AC9D0497D7151E1505 /* Pods_Concept_of_Proof.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FA63785324AC61DA006A0DE6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA63783424AC61D4006A0DE6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA63783B24AC61D4006A0DE6;
+			remoteInfo = "Concept of Proof";
+		};
+		FA63785E24AC61DA006A0DE6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA63783424AC61D4006A0DE6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA63783B24AC61D4006A0DE6;
+			remoteInfo = "Concept of Proof";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		11B5D61357692B79F89F26F7 /* Pods_Concept_of_ProofTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Concept_of_ProofTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		139C4CFC28C9F126D9BC512D /* Pods_Concept_of_Proof_Concept_of_ProofUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Concept_of_Proof_Concept_of_ProofUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A76AD16ADB72EFEE59EE8EC /* Pods-Concept of ProofTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Concept of ProofTests.debug.xcconfig"; path = "Target Support Files/Pods-Concept of ProofTests/Pods-Concept of ProofTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4D53E7446E01C970C3469DB2 /* Pods-Concept of Proof.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Concept of Proof.release.xcconfig"; path = "Target Support Files/Pods-Concept of Proof/Pods-Concept of Proof.release.xcconfig"; sourceTree = "<group>"; };
+		537E938A916B6B37766F3991 /* Pods-Concept of Proof.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Concept of Proof.debug.xcconfig"; path = "Target Support Files/Pods-Concept of Proof/Pods-Concept of Proof.debug.xcconfig"; sourceTree = "<group>"; };
+		8D71D90C71A1D00BBDD99C47 /* Pods-Concept of Proof-Concept of ProofUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Concept of Proof-Concept of ProofUITests.debug.xcconfig"; path = "Target Support Files/Pods-Concept of Proof-Concept of ProofUITests/Pods-Concept of Proof-Concept of ProofUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B5D17A633EA14E5FD6A58C39 /* Pods-Concept of ProofTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Concept of ProofTests.release.xcconfig"; path = "Target Support Files/Pods-Concept of ProofTests/Pods-Concept of ProofTests.release.xcconfig"; sourceTree = "<group>"; };
+		E0CC32AC9D0497D7151E1505 /* Pods_Concept_of_Proof.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Concept_of_Proof.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7143B888F4854A456DBE960 /* Pods-Concept of Proof-Concept of ProofUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Concept of Proof-Concept of ProofUITests.release.xcconfig"; path = "Target Support Files/Pods-Concept of Proof-Concept of ProofUITests/Pods-Concept of Proof-Concept of ProofUITests.release.xcconfig"; sourceTree = "<group>"; };
+		FA63783C24AC61D4006A0DE6 /* Concept of Proof.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Concept of Proof.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA63783F24AC61D4006A0DE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FA63784124AC61D4006A0DE6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		FA63784324AC61D4006A0DE6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FA63784524AC61DA006A0DE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FA63784824AC61DA006A0DE6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FA63784B24AC61DA006A0DE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FA63784D24AC61DA006A0DE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA63785224AC61DA006A0DE6 /* Concept of ProofTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Concept of ProofTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA63785624AC61DA006A0DE6 /* Concept_of_ProofTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concept_of_ProofTests.swift; sourceTree = "<group>"; };
+		FA63785824AC61DA006A0DE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA63785D24AC61DA006A0DE6 /* Concept of ProofUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Concept of ProofUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA63786124AC61DA006A0DE6 /* Concept_of_ProofUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concept_of_ProofUITests.swift; sourceTree = "<group>"; };
+		FA63786324AC61DA006A0DE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FA63783924AC61D4006A0DE6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAA73AB55FB2AC49E1F1878C /* Pods_Concept_of_Proof.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA63784F24AC61DA006A0DE6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4536B2ED29CD0193AE766C0B /* Pods_Concept_of_ProofTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA63785A24AC61DA006A0DE6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48165301E5CFE212B569B87E /* Pods_Concept_of_Proof_Concept_of_ProofUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		81C1E8F38F31590DEDD37FB8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E0CC32AC9D0497D7151E1505 /* Pods_Concept_of_Proof.framework */,
+				139C4CFC28C9F126D9BC512D /* Pods_Concept_of_Proof_Concept_of_ProofUITests.framework */,
+				11B5D61357692B79F89F26F7 /* Pods_Concept_of_ProofTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C091850B0E942DE32FDE72F9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				537E938A916B6B37766F3991 /* Pods-Concept of Proof.debug.xcconfig */,
+				4D53E7446E01C970C3469DB2 /* Pods-Concept of Proof.release.xcconfig */,
+				8D71D90C71A1D00BBDD99C47 /* Pods-Concept of Proof-Concept of ProofUITests.debug.xcconfig */,
+				F7143B888F4854A456DBE960 /* Pods-Concept of Proof-Concept of ProofUITests.release.xcconfig */,
+				3A76AD16ADB72EFEE59EE8EC /* Pods-Concept of ProofTests.debug.xcconfig */,
+				B5D17A633EA14E5FD6A58C39 /* Pods-Concept of ProofTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FA63783324AC61D4006A0DE6 = {
+			isa = PBXGroup;
+			children = (
+				FA63783E24AC61D4006A0DE6 /* Concept of Proof */,
+				FA63785524AC61DA006A0DE6 /* Concept of ProofTests */,
+				FA63786024AC61DA006A0DE6 /* Concept of ProofUITests */,
+				FA63783D24AC61D4006A0DE6 /* Products */,
+				C091850B0E942DE32FDE72F9 /* Pods */,
+				81C1E8F38F31590DEDD37FB8 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FA63783D24AC61D4006A0DE6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FA63783C24AC61D4006A0DE6 /* Concept of Proof.app */,
+				FA63785224AC61DA006A0DE6 /* Concept of ProofTests.xctest */,
+				FA63785D24AC61DA006A0DE6 /* Concept of ProofUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FA63783E24AC61D4006A0DE6 /* Concept of Proof */ = {
+			isa = PBXGroup;
+			children = (
+				FA63787424AC6268006A0DE6 /* API Helper */,
+				FA63787324AC624B006A0DE6 /* Helper Classes */,
+				FA63786F24AC6224006A0DE6 /* MVC */,
+				FA63783F24AC61D4006A0DE6 /* AppDelegate.swift */,
+				FA63784124AC61D4006A0DE6 /* SceneDelegate.swift */,
+				FA63784324AC61D4006A0DE6 /* ContentView.swift */,
+				FA63784524AC61DA006A0DE6 /* Assets.xcassets */,
+				FA63784A24AC61DA006A0DE6 /* LaunchScreen.storyboard */,
+				FA63784D24AC61DA006A0DE6 /* Info.plist */,
+				FA63784724AC61DA006A0DE6 /* Preview Content */,
+			);
+			path = "Concept of Proof";
+			sourceTree = "<group>";
+		};
+		FA63784724AC61DA006A0DE6 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				FA63784824AC61DA006A0DE6 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FA63785524AC61DA006A0DE6 /* Concept of ProofTests */ = {
+			isa = PBXGroup;
+			children = (
+				FA63785624AC61DA006A0DE6 /* Concept_of_ProofTests.swift */,
+				FA63785824AC61DA006A0DE6 /* Info.plist */,
+			);
+			path = "Concept of ProofTests";
+			sourceTree = "<group>";
+		};
+		FA63786024AC61DA006A0DE6 /* Concept of ProofUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FA63786124AC61DA006A0DE6 /* Concept_of_ProofUITests.swift */,
+				FA63786324AC61DA006A0DE6 /* Info.plist */,
+			);
+			path = "Concept of ProofUITests";
+			sourceTree = "<group>";
+		};
+		FA63786F24AC6224006A0DE6 /* MVC */ = {
+			isa = PBXGroup;
+			children = (
+				FA63787224AC6242006A0DE6 /* Model */,
+				FA63787124AC6239006A0DE6 /* View */,
+				FA63787024AC6231006A0DE6 /* Controller */,
+			);
+			path = MVC;
+			sourceTree = "<group>";
+		};
+		FA63787024AC6231006A0DE6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FA63787124AC6239006A0DE6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FA63787224AC6242006A0DE6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FA63787324AC624B006A0DE6 /* Helper Classes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Helper Classes";
+			sourceTree = "<group>";
+		};
+		FA63787424AC6268006A0DE6 /* API Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "API Helper";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FA63783B24AC61D4006A0DE6 /* Concept of Proof */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA63786624AC61DA006A0DE6 /* Build configuration list for PBXNativeTarget "Concept of Proof" */;
+			buildPhases = (
+				078B0024E4ABF952B06F7011 /* [CP] Check Pods Manifest.lock */,
+				FA63783824AC61D4006A0DE6 /* Sources */,
+				FA63783924AC61D4006A0DE6 /* Frameworks */,
+				FA63783A24AC61D4006A0DE6 /* Resources */,
+				572C9E2A081CEAB5FBABB8D9 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Concept of Proof";
+			productName = "Concept of Proof";
+			productReference = FA63783C24AC61D4006A0DE6 /* Concept of Proof.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FA63785124AC61DA006A0DE6 /* Concept of ProofTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA63786924AC61DA006A0DE6 /* Build configuration list for PBXNativeTarget "Concept of ProofTests" */;
+			buildPhases = (
+				DB5AD8D7BB9921A754F79E95 /* [CP] Check Pods Manifest.lock */,
+				FA63784E24AC61DA006A0DE6 /* Sources */,
+				FA63784F24AC61DA006A0DE6 /* Frameworks */,
+				FA63785024AC61DA006A0DE6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FA63785424AC61DA006A0DE6 /* PBXTargetDependency */,
+			);
+			name = "Concept of ProofTests";
+			productName = "Concept of ProofTests";
+			productReference = FA63785224AC61DA006A0DE6 /* Concept of ProofTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FA63785C24AC61DA006A0DE6 /* Concept of ProofUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA63786C24AC61DA006A0DE6 /* Build configuration list for PBXNativeTarget "Concept of ProofUITests" */;
+			buildPhases = (
+				1CC172A48E83E0C502D5D3DC /* [CP] Check Pods Manifest.lock */,
+				FA63785924AC61DA006A0DE6 /* Sources */,
+				FA63785A24AC61DA006A0DE6 /* Frameworks */,
+				FA63785B24AC61DA006A0DE6 /* Resources */,
+				56EC14866016D709641126FE /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FA63785F24AC61DA006A0DE6 /* PBXTargetDependency */,
+			);
+			name = "Concept of ProofUITests";
+			productName = "Concept of ProofUITests";
+			productReference = FA63785D24AC61DA006A0DE6 /* Concept of ProofUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FA63783424AC61D4006A0DE6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1110;
+				LastUpgradeCheck = 1110;
+				ORGANIZATIONNAME = Godwin;
+				TargetAttributes = {
+					FA63783B24AC61D4006A0DE6 = {
+						CreatedOnToolsVersion = 11.1;
+					};
+					FA63785124AC61DA006A0DE6 = {
+						CreatedOnToolsVersion = 11.1;
+						TestTargetID = FA63783B24AC61D4006A0DE6;
+					};
+					FA63785C24AC61DA006A0DE6 = {
+						CreatedOnToolsVersion = 11.1;
+						TestTargetID = FA63783B24AC61D4006A0DE6;
+					};
+				};
+			};
+			buildConfigurationList = FA63783724AC61D4006A0DE6 /* Build configuration list for PBXProject "Concept of Proof" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FA63783324AC61D4006A0DE6;
+			productRefGroup = FA63783D24AC61D4006A0DE6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FA63783B24AC61D4006A0DE6 /* Concept of Proof */,
+				FA63785124AC61DA006A0DE6 /* Concept of ProofTests */,
+				FA63785C24AC61DA006A0DE6 /* Concept of ProofUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FA63783A24AC61D4006A0DE6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA63784C24AC61DA006A0DE6 /* LaunchScreen.storyboard in Resources */,
+				FA63784924AC61DA006A0DE6 /* Preview Assets.xcassets in Resources */,
+				FA63784624AC61DA006A0DE6 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA63785024AC61DA006A0DE6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA63785B24AC61DA006A0DE6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		078B0024E4ABF952B06F7011 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Concept of Proof-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1CC172A48E83E0C502D5D3DC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Concept of Proof-Concept of ProofUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		56EC14866016D709641126FE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Concept of Proof-Concept of ProofUITests/Pods-Concept of Proof-Concept of ProofUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Concept of Proof-Concept of ProofUITests/Pods-Concept of Proof-Concept of ProofUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Concept of Proof-Concept of ProofUITests/Pods-Concept of Proof-Concept of ProofUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		572C9E2A081CEAB5FBABB8D9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Concept of Proof/Pods-Concept of Proof-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Concept of Proof/Pods-Concept of Proof-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Concept of Proof/Pods-Concept of Proof-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB5AD8D7BB9921A754F79E95 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Concept of ProofTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FA63783824AC61D4006A0DE6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA63784024AC61D4006A0DE6 /* AppDelegate.swift in Sources */,
+				FA63784224AC61D4006A0DE6 /* SceneDelegate.swift in Sources */,
+				FA63784424AC61D4006A0DE6 /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA63784E24AC61DA006A0DE6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA63785724AC61DA006A0DE6 /* Concept_of_ProofTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA63785924AC61DA006A0DE6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA63786224AC61DA006A0DE6 /* Concept_of_ProofUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FA63785424AC61DA006A0DE6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA63783B24AC61D4006A0DE6 /* Concept of Proof */;
+			targetProxy = FA63785324AC61DA006A0DE6 /* PBXContainerItemProxy */;
+		};
+		FA63785F24AC61DA006A0DE6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA63783B24AC61D4006A0DE6 /* Concept of Proof */;
+			targetProxy = FA63785E24AC61DA006A0DE6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FA63784A24AC61DA006A0DE6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA63784B24AC61DA006A0DE6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FA63786424AC61DA006A0DE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FA63786524AC61DA006A0DE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FA63786724AC61DA006A0DE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 537E938A916B6B37766F3991 /* Pods-Concept of Proof.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Concept of Proof/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Concept of Proof/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Godwin.Concept-of-Proof";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FA63786824AC61DA006A0DE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D53E7446E01C970C3469DB2 /* Pods-Concept of Proof.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Concept of Proof/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Concept of Proof/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Godwin.Concept-of-Proof";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FA63786A24AC61DA006A0DE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A76AD16ADB72EFEE59EE8EC /* Pods-Concept of ProofTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Concept of ProofTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Godwin.Concept-of-ProofTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Concept of Proof.app/Concept of Proof";
+			};
+			name = Debug;
+		};
+		FA63786B24AC61DA006A0DE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5D17A633EA14E5FD6A58C39 /* Pods-Concept of ProofTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Concept of ProofTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Godwin.Concept-of-ProofTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Concept of Proof.app/Concept of Proof";
+			};
+			name = Release;
+		};
+		FA63786D24AC61DA006A0DE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D71D90C71A1D00BBDD99C47 /* Pods-Concept of Proof-Concept of ProofUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Concept of ProofUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Godwin.Concept-of-ProofUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Concept of Proof";
+			};
+			name = Debug;
+		};
+		FA63786E24AC61DA006A0DE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F7143B888F4854A456DBE960 /* Pods-Concept of Proof-Concept of ProofUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Concept of ProofUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Godwin.Concept-of-ProofUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Concept of Proof";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FA63783724AC61D4006A0DE6 /* Build configuration list for PBXProject "Concept of Proof" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA63786424AC61DA006A0DE6 /* Debug */,
+				FA63786524AC61DA006A0DE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA63786624AC61DA006A0DE6 /* Build configuration list for PBXNativeTarget "Concept of Proof" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA63786724AC61DA006A0DE6 /* Debug */,
+				FA63786824AC61DA006A0DE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA63786924AC61DA006A0DE6 /* Build configuration list for PBXNativeTarget "Concept of ProofTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA63786A24AC61DA006A0DE6 /* Debug */,
+				FA63786B24AC61DA006A0DE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA63786C24AC61DA006A0DE6 /* Build configuration list for PBXNativeTarget "Concept of ProofUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA63786D24AC61DA006A0DE6 /* Debug */,
+				FA63786E24AC61DA006A0DE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FA63783424AC61D4006A0DE6 /* Project object */;
+}
