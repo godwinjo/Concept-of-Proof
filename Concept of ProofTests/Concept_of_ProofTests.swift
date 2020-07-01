@@ -8,27 +8,28 @@
 
 import XCTest
 @testable import Concept_of_Proof
+import Alamofire
 
 class Concept_of_ProofTests: XCTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testAPIServiceName()  {
+        var apiServiceName : String?
+        XCTAssertNil(apiServiceName)
+        apiServiceName = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"
+        XCTAssertEqual(apiServiceName, APIUrl.listApi.rawValue)
     }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    func apiResponseCheck()  {
+        var status : Bool?
+        XCTAssertNil(status)
+        status = true
+        var value : Bool?
+        Alamofire.request(APIUrl.listApi.rawValue, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseData { (response) in
+            value = (response.data != nil) ? true : false
         }
+         XCTAssertEqual(status, value)
+        
     }
+    
 
 }
