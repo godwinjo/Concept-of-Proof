@@ -8,18 +8,17 @@
 
 import UIKit
 
-
-struct Item  {
+struct Item {
     
-    var itemTitle :   String?
-    var itemDetails : [ItemDetails]?
+    var itemTitle: String?
+    var itemDetails: [ItemDetails]?
     
-    init(dict:NSDictionary) {
+    init(dict: NSDictionary) {
         self.itemTitle = dict["title"] as? String
         if let rows = dict["rows"] as? NSArray {
             itemDetails = [ItemDetails]()
             for row in rows {
-                let itemDetail = ItemDetails(dict: row as! NSDictionary)
+                let itemDetail = ItemDetails(dict: row as? NSDictionary)
                 itemDetails?.append(itemDetail)
             }
         }
@@ -29,14 +28,14 @@ struct Item  {
 
 struct ItemDetails {
     
-    var itemTitle :        String?
-    var itemDescription : String?
-    var itemImage :       String?
+    var itemTitle: String?
+    var itemDescription: String?
+    var itemImage: String?
     
-    init(dict:NSDictionary) {
-        self.itemTitle = dict["title"] as? String
-        self.itemDescription = dict["description"] as? String
-        self.itemImage = dict["imageHref"] as? String
+    init(dict: NSDictionary?) {
+        self.itemTitle = dict?["title"] as? String
+        self.itemDescription = dict?["description"] as? String
+        self.itemImage = dict?["imageHref"] as? String
     }
 
 }
