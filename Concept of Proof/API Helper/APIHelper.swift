@@ -23,6 +23,8 @@ class APIHelper {
                 }catch let error{
                     completion(false,nil, error)
                 }
+            }else if responseData.error != nil{
+                completion(false,nil, responseData.error)
             }
         }
     }
