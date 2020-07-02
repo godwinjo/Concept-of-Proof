@@ -20,16 +20,13 @@ class ItemDetailsTableViewCell: UITableViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
+        self.reUseControls()
+    }
+    
+    func reUseControls() {
         self.labelTitle.text = nil
         self.labelDescription.text = nil
         self.imageViewItem.image = nil
-    }
-    
-// MARK: Add controls in the view
-    func addItemsToView() {
-        initControlls()
-        setConstrainsts()
-        setValues()
     }
     
 // MARK: Initialzing controlles
@@ -56,36 +53,43 @@ class ItemDetailsTableViewCell: UITableViewCell {
         labelDescription.translatesAutoresizingMaskIntoConstraints = false
         imageViewItem.translatesAutoresizingMaskIntoConstraints = false
         imageViewItem.clipsToBounds = true
-        imageViewItem.layer.masksToBounds = true
-        imageViewItem.contentMode = .scaleAspectFit
+        imageViewItem.contentMode = .scaleAspectFill
+        let views = ["labelTitle": labelTitle, "labelDescription": labelDescription, "imageViewItem": imageViewItem]
+        setConstrainsts(views: views as [String: Any])
+        setValues(itemDetails: itemDetails, titleLabel: labelTitle, descLabel: labelDescription, imageView: imageViewItem)
+        
     }
     
 // MARK: Set Constraints
-    func setConstrainsts() {
-        let views = ["labelTitle": labelTitle, "labelDescription": labelDescription, "imageViewItem": imageViewItem]
+    func setConstrainsts(views: [String: Any]) {
         var viewConstraints = [NSLayoutConstraint]()
-        let imageViewItemHorizontalContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[imageViewItem(\(screenWidth/2.5))]", options: [], metrics: nil, views: views as [String: Any])
-        viewConstraints += imageViewItemHorizontalContraints
-        let labelTitleHorizontalContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:[imageViewItem]-10-[labelTitle]-10-|", options: [], metrics: nil, views: views as [String: Any])
-        viewConstraints += labelTitleHorizontalContraints
-let labelDescriptionHorizontalContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:[imageViewItem]-10-[labelDescription]-10-|", options: [], metrics: nil, views: views as [String: Any])
-        viewConstraints += labelDescriptionHorizontalContraints
-        
-        let labelVerticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-10-[labelTitle]-10-[labelDescription]-10-|", options: [], metrics: nil, views: views as [String: Any])
-        viewConstraints += labelVerticalConstraints
-        let imageViewVerticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-10-[imageViewItem]-10-|", options: [], metrics: nil, views: views as [String: Any])
-        viewConstraints += imageViewVerticalConstraints
-        
+        let imageViewVisual = "H:|-10-[imageViewItem(\(screenWidth/2.5))]"
+        let imageViewHC = NSLayoutConstraint.constraints(withVisualFormat: imageViewVisual, options: [], metrics: nil, views: views as [String: Any])
+        viewConstraints += imageViewHC
+        let labelTitleVisual = "H:[imageViewItem]-10-[labelTitle]-10-|"
+        let labelTitlHC = NSLayoutConstraint.constraints(withVisualFormat: labelTitleVisual, options: [], metrics: nil, views: views as [String: Any])
+        viewConstraints += labelTitlHC
+        let decVisual = "H:[imageViewItem]-10-[labelDescription]-10-|"
+        let labelDescHC = NSLayoutConstraint.constraints(withVisualFormat: decVisual, options: [], metrics: nil, views: views as [String: Any])
+        viewConstraints += labelDescHC
+        let verticalVisual = "V:|-10-[labelTitle(18)]-10-[labelDescription]-10-|"
+        let labelVC = NSLayoutConstraint.constraints(withVisualFormat: verticalVisual, options: [], metrics: nil, views: views as [String: Any])
+        viewConstraints += labelVC
+        let imgVerticlVisual = "V:|-10-[imageViewItem]-10-|"
+        let imageViewVC = NSLayoutConstraint.constraints(withVisualFormat: imgVerticlVisual, options: [], metrics: nil, views: views as [String: Any])
+        viewConstraints += imageViewVC
         NSLayoutConstraint.activate(viewConstraints)
     }
     
 // MARK: Set Values
-    func setValues() {
+    func setValues(itemDetails: ItemDetails?, titleLabel: UILabel, descLabel: UILabel, imageView: UIImageView) {
         if let details = itemDetails {
-            labelTitle.text = details.itemTitle ?? ""
-            labelDescription.text = details.itemDescription ?? ""
+            titleLabel.text = details.itemTitle ?? ""
+            descLabel.text = details.itemDescription ?? ""
             if let imageUrl = details.itemImage {
-                self.imageViewItem.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "placeHolderImage"), options: SDWebImageOptions(rawValue: 1), completed: nil)
+                let url = URL(string: imageUrl)
+                let placeHolder = UIImage(named: "placeHolderImage")
+                imageView.sd_setImage(with: url, placeholderImage: placeHolder, options: SDWebImageOptions(rawValue: 1), completed: nil)
             }
         }
     }

@@ -20,63 +20,41 @@ class HomeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
-        self.getItems()
+        getItems()
+        
+    }
+    
+    // MARK: Get Items
+    func getItems() {
+        item = Item()
+        self.tableView.dataSource = item
+        self.tableView.delegate = item
+        item?.getItems { (status, pageTitle, error) in
+            if status == true {
+                if let title = pageTitle {
+                    DispatchQueue.main.async {
+                        self.pageTitle = title
+                        self.tableView.reloadData()
+                    }
+                }
+            } else {
+                self.showAlert(title: "Alert", message: error!.localizedDescription)
+            }
+        }
     }
     
 // MARK: Set Page Title
     func setPageTitle() {
         self.title = pageTitle
     }
-
-// MARK: Get Items
-    func getItems() {
-        APIManager.getItemsList { (status, result, error) in
-            if status == true {
-            if error != nil {
-                self.showAlert(title: "Alert", message: error!.localizedDescription)
-                return
-            }
-            if let dict = result {
-                self.item = Item(dict: dict)
-            }
-            DispatchQueue.main.async {
-                self.pageTitle = self.item?.itemTitle ?? ""
-                self.tableView.reloadData()
-            }
-        }
-        }
-    }
-    
+        
 // MARK: Configure TableView
     func configureTableView() {
-        self.tableView.estimatedRowHeight = 40
+        self.tableView.estimatedRowHeight = 20
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.register(ItemDetailsTableViewCell.self, forCellReuseIdentifier: ItemDetailsTableViewCell.identifier)
     }
     
-}
-
-extension HomeTableViewController {
-// MARK: TableView DataSource
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if item != nil && item?.itemDetails != nil {
-            return item!.itemDetails!.count
-        }
-        return 0
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ItemDetailsTableViewCell.identifier, for: indexPath) as? ItemDetailsTableViewCell
-        cell?.selectionStyle = .none
-        cell?.itemDetails = item?.itemDetails![indexPath.row]
-        cell?.addItemsToView()
-        return cell!
-    }
-    
-// MARK: TableView Delegate
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
 }
 
 extension HomeTableViewController {
