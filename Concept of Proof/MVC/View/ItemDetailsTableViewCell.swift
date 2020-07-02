@@ -51,8 +51,8 @@ class ItemDetailsTableViewCell: UITableViewCell {
         labelTitle.font = UIFont.boldSystemFont(ofSize: 16.0)
         labelDescription.textColor = .gray
         labelDescription.font = UIFont.systemFont(ofSize: 16.0)
-        labelTitle.textAlignment = .center
-        labelDescription.textAlignment = .center
+        labelTitle.textAlignment = .left
+        labelDescription.textAlignment = .left
         
         self.contentView.addSubview(labelTitle)
         self.contentView.addSubview(labelDescription)
@@ -70,14 +70,18 @@ class ItemDetailsTableViewCell: UITableViewCell {
     func setConstrainsts()  {
         let views = ["labelTitle" : labelTitle, "labelDescription" : labelDescription, "imageViewItem" : imageViewItem]
         var viewConstraints = [NSLayoutConstraint]()
-        let labelTitleHorizontalContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[labelTitle]-10-|", options: [], metrics: nil, views: views as [String : Any])
-        viewConstraints += labelTitleHorizontalContraints
-        let labelDescriptionHorizontalContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[labelDescription]-10-|", options: [], metrics: nil, views: views as [String : Any])
-        viewConstraints += labelDescriptionHorizontalContraints
-        let imageViewItemHorizontalContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[imageViewItem]-10-|", options: [], metrics: nil, views: views as [String : Any])
+        let imageViewItemHorizontalContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[imageViewItem(\(screenWidth/2.5))]", options: [], metrics: nil, views: views as [String : Any])
         viewConstraints += imageViewItemHorizontalContraints
-        let verticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-10-[labelTitle]-10-[labelDescription]-10-[imageViewItem]-10-|", options: [], metrics: nil, views: views as [String : Any])
-        viewConstraints += verticalConstraints
+        let labelTitleHorizontalContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:[imageViewItem]-10-[labelTitle]-10-|", options: [], metrics: nil, views: views as [String : Any])
+        viewConstraints += labelTitleHorizontalContraints
+        let labelDescriptionHorizontalContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:[imageViewItem]-10-[labelDescription]-10-|", options: [], metrics: nil, views: views as [String : Any])
+        viewConstraints += labelDescriptionHorizontalContraints
+        
+        let labelVerticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-10-[labelTitle]-10-[labelDescription]-10-|", options: [], metrics: nil, views: views as [String : Any])
+        viewConstraints += labelVerticalConstraints
+        let imageViewVerticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-10-[imageViewItem]-10-|", options: [], metrics: nil, views: views as [String : Any])
+        viewConstraints += imageViewVerticalConstraints
+        
         NSLayoutConstraint.activate(viewConstraints)
     }
     
@@ -87,11 +91,12 @@ class ItemDetailsTableViewCell: UITableViewCell {
             labelTitle.text = details.itemTitle ?? ""
             labelDescription.text = details.itemDescription ?? ""
             if let imageUrl = details.itemImage {
-                imageViewItem.sd_setImage(with: URL(string: imageUrl)) { (image, error, cache, url) in
-                    if let image = image {
-                        self.imageViewItem.image = image
+                self.imageViewItem?.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "placeHolderImage"),options: SDWebImageOptions(rawValue: 1) , completed: { (image, error, cacheType, imageURL) in
+                    if image == nil {
+                        self.imageViewItem.image = UIImage(named: "placeHolderImage")
                     }
-                }
+                    
+                })
             }
         }
     }

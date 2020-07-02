@@ -7,7 +7,13 @@
 //
 
 import Foundation
+import UIKit
 
+//MARK:- Constants
+let screenWidth = UIScreen.main.bounds.width
+
+
+//MARK:- String extension
 extension String {
     static func className(_ aClass: AnyClass) -> String {
         return NSStringFromClass(aClass).components(separatedBy: ".").last!
