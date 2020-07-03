@@ -11,7 +11,7 @@ import Foundation
 class APIManager {
     
     // MARK: Item List API call
-    class func getItemsList(completion:@escaping (_ status: Bool, _ result: NSDictionary?, _ error: Error?) -> Void) {
+    class func getItemsList(completion:@escaping (_ status: Bool, _ result: [String: Any]?, _ error: Error?) -> Void) {
         APIHelper.getMethod(apiUrl: APIUrl.listApi.rawValue) { (status, result, error) in
             completion(status, result, error)
         }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4536B2ED29CD0193AE766C0B /* Pods_Concept_of_ProofTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B5D61357692B79F89F26F7 /* Pods_Concept_of_ProofTests.framework */; };
 		48165301E5CFE212B569B87E /* Pods_Concept_of_Proof_Concept_of_ProofUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 139C4CFC28C9F126D9BC512D /* Pods_Concept_of_Proof_Concept_of_ProofUITests.framework */; };
+		FA3D05E724AF97850011E275 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D05E624AF97850011E275 /* ItemViewModel.swift */; };
 		FA63784024AC61D4006A0DE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA63783F24AC61D4006A0DE6 /* AppDelegate.swift */; };
 		FA63784624AC61DA006A0DE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA63784524AC61DA006A0DE6 /* Assets.xcassets */; };
 		FA63784924AC61DA006A0DE6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA63784824AC61DA006A0DE6 /* Preview Assets.xcassets */; };
@@ -52,6 +53,7 @@
 		B5D17A633EA14E5FD6A58C39 /* Pods-Concept of ProofTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Concept of ProofTests.release.xcconfig"; path = "Target Support Files/Pods-Concept of ProofTests/Pods-Concept of ProofTests.release.xcconfig"; sourceTree = "<group>"; };
 		E0CC32AC9D0497D7151E1505 /* Pods_Concept_of_Proof.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Concept_of_Proof.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7143B888F4854A456DBE960 /* Pods-Concept of Proof-Concept of ProofUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Concept of Proof-Concept of ProofUITests.release.xcconfig"; path = "Target Support Files/Pods-Concept of Proof-Concept of ProofUITests/Pods-Concept of Proof-Concept of ProofUITests.release.xcconfig"; sourceTree = "<group>"; };
+		FA3D05E624AF97850011E275 /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
 		FA63783C24AC61D4006A0DE6 /* Concept of Proof.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Concept of Proof.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA63783F24AC61D4006A0DE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA63784524AC61DA006A0DE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -124,6 +126,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		FA3D05E524AF974F0011E275 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				FA3D05E624AF97850011E275 /* ItemViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
 		FA63783324AC61D4006A0DE6 = {
 			isa = PBXGroup;
 			children = (
@@ -151,7 +161,9 @@
 			children = (
 				FA63787424AC6268006A0DE6 /* API Helper */,
 				FA63787324AC624B006A0DE6 /* Helper Classes */,
-				FA63786F24AC6224006A0DE6 /* MVC */,
+				FA63787224AC6242006A0DE6 /* Model */,
+				FA63787124AC6239006A0DE6 /* View */,
+				FA3D05E524AF974F0011E275 /* View Model */,
 				FA63783F24AC61D4006A0DE6 /* AppDelegate.swift */,
 				FA63784524AC61DA006A0DE6 /* Assets.xcassets */,
 				FA63784A24AC61DA006A0DE6 /* LaunchScreen.storyboard */,
@@ -187,28 +199,11 @@
 			path = "Concept of ProofUITests";
 			sourceTree = "<group>";
 		};
-		FA63786F24AC6224006A0DE6 /* MVC */ = {
-			isa = PBXGroup;
-			children = (
-				FA63787224AC6242006A0DE6 /* Model */,
-				FA63787124AC6239006A0DE6 /* View */,
-				FA63787024AC6231006A0DE6 /* Controller */,
-			);
-			path = MVC;
-			sourceTree = "<group>";
-		};
-		FA63787024AC6231006A0DE6 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				FA63787F24AC68DC006A0DE6 /* HomeTableViewController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
 		FA63787124AC6239006A0DE6 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				FA63787D24AC6696006A0DE6 /* ItemDetailsTableViewCell.swift */,
+				FA63787F24AC68DC006A0DE6 /* HomeTableViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -500,6 +495,7 @@
 				FA63787E24AC6696006A0DE6 /* ItemDetailsTableViewCell.swift in Sources */,
 				FA63787824AC63C5006A0DE6 /* APIUrls.swift in Sources */,
 				FA63784024AC61D4006A0DE6 /* AppDelegate.swift in Sources */,
+				FA3D05E724AF97850011E275 /* ItemViewModel.swift in Sources */,
 				FA63787A24AC6487006A0DE6 /* ItemDetails.swift in Sources */,
 				FA63788024AC68DC006A0DE6 /* HomeTableViewController.swift in Sources */,
 				FA63787C24AC6680006A0DE6 /* Extensions.swift in Sources */,

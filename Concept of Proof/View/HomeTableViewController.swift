@@ -10,7 +10,8 @@ import UIKit
 
 class HomeTableViewController: UITableViewController {
     
-    var item: Item?
+    var itemViewModel: ItemViewModel?
+    var refreshcontrl = UIRefreshControl()
     var pageTitle: String = "" {
         didSet {
             setPageTitle()
@@ -26,10 +27,11 @@ class HomeTableViewController: UITableViewController {
     
     // MARK: Get Items
     func setDataSourceandDelegate() {
-        item = Item()
-        self.tableView.dataSource = item
-        self.tableView.delegate = item
-        item?.getItems { (status, pageTitle, error) in
+        itemViewModel = ItemViewModel()
+        self.tableView.dataSource = itemViewModel
+        self.tableView.delegate = itemViewModel
+        itemViewModel?.getItems { (status, pageTitle, error) in
+            self.refreshcontrl.endRefreshing()
             if status == true {
                 if let title = pageTitle {
                     DispatchQueue.main.async {
@@ -38,7 +40,9 @@ class HomeTableViewController: UITableViewController {
                     }
                 }
             } else {
-                self.showAlert(title: "Alert", message: error!.localizedDescription)
+                if let eror = error {
+                    self.showAlert(title: "Alert", message: eror.localizedDescription)
+                }
             }
         }
     }
@@ -50,10 +54,23 @@ class HomeTableViewController: UITableViewController {
         
 // MARK: Configure TableView
     func configureTableView() {
+        addRefreshControl()
         self.tableView.tableFooterView = UIView()
         self.tableView.estimatedRowHeight = 20
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.register(ItemDetailsTableViewCell.self, forCellReuseIdentifier: ItemDetailsTableViewCell.identifier)
+    }
+    
+    // MARK: Add refreshcontrol
+    func addRefreshControl() {
+        refreshcontrl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshcontrl.addTarget(self, action: #selector(self.refresh), for: .valueChanged)
+        self.tableView.addSubview(refreshcontrl)
+    }
+    
+    // MARK: Action of refreshcontrol
+    @objc func refresh() {
+        setDataSourceandDelegate()
     }
     
 }
