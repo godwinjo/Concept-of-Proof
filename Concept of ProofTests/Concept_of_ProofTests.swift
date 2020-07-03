@@ -43,44 +43,13 @@ class ConceptofProofTests: XCTestCase {
 
     func testGetAPIStatusTrue() {
         let url = APIUrl.listApi.rawValue
+        let expectation = self.expectation(description: "getting items from service")
         APIHelper.getMethod(apiUrl: url) { (status, _, _) in
             XCTAssertTrue(status)
+            expectation.fulfill()
         }
-    }
-    
-    func testGetAPIStatusFalse() {
-        let url = "https://http://fyimusi"
-        APIHelper.getMethod(apiUrl: url) { (status, _, _) in
-            XCTAssertTrue(status)
-        }
-    }
-    
-    func testGetAPIGetError() {
-        let url = "https://http://fyimusi"
-        APIHelper.getMethod(apiUrl: url) { (_, _, error) in
-            XCTAssertNotNil(error)
-        }
-    }
-    
-    func testAlamofireServiceError() {
-        let url = "https://http://fyimusi"
-        APIHelper.alamofireGetAPI(url: url) { (_, _, error) in
-            XCTAssertNotNil(error)
-        }
-    }
-    
-    func testJsonDecoding() {
-        let data = Data()
-        APIHelper.jsonDecoding(data: data) { (_, _, error) in
-            XCTAssertNotNil(error)
-        }
-    }
-    
-    func testGetItems() {
-        APIManager.getItemsList { (status, result, error) in
-            XCTAssertTrue(status)
-            XCTAssertNotNil(result)
-            XCTAssertNil(error)
+        waitForExpectations(timeout: 5) { (error) in
+            XCTAssertNil(error, error!.localizedDescription)
         }
     }
     
@@ -88,24 +57,12 @@ class ConceptofProofTests: XCTestCase {
         let homeVc = HomeTableViewController()
         _ = homeVc.view
         homeVc.pageTitle = ""
-        homeVc.getItems()
         XCTAssertNotNil(homeVc.tableView)
     }
     
     func testTableViewDataSource() {
         let homeVc = HomeTableViewController()
         XCTAssertTrue(homeVc.tableView.dataSource is Item)
-    }
-    
-    func testItemGetFromItem() {
-        let item = Item()
-        let statticTitle = "About Canada"
-        item.getItems { (status, title, error) in
-            XCTAssertTrue(status)
-            XCTAssertNotNil(title)
-            XCTAssertNil(error)
-            XCTAssertEqual(title, statticTitle)
-        }
     }
     
     func testAlertView() {
@@ -128,6 +85,7 @@ class ConceptofProofTests: XCTestCase {
                let itemDetails = ItemDetails(dict: dict as NSDictionary)
         cell.setValues(itemDetails: itemDetails, titleLabel: labelTitle, descLabel: labelDescription, imageView: imageViewItem)
         cell.reUseControls()
+        XCTAssertEqual(dict["title"], cell.itemDetails?.itemTitle)
     }
     
     func testTableViewCellwithValue() {
@@ -145,6 +103,7 @@ class ConceptofProofTests: XCTestCase {
                let itemDetails = ItemDetails(dict: dict as NSDictionary)
         cell.setValues(itemDetails: itemDetails, titleLabel: labelTitle, descLabel: labelDescription, imageView: imageViewItem)
         cell.reUseControls()
+        XCTAssertEqual(dict["title"], cell.itemDetails?.itemTitle)
     }
     
     func testTabelViewCellValues() {
@@ -172,32 +131,4 @@ class ConceptofProofTests: XCTestCase {
         XCTAssertEqual(count, 1)
     }
     
-    func testResultValidationWithValue() {
-        let dict = ["title": "firt item", "description": "first item description", "imageHref": "https://http://fyimusic.ca/wp-content/uploads/2008/06/hockey-night-in-canada.thumbnail.jpg"]
-        let itemDetails = ItemDetails(dict: dict as NSDictionary)
-        let array = [itemDetails]
-        let dict1 = ["title": "firt item", "rows": [array]] as [String: Any]
-        let item = Item()
-        item.resultValidate(status: true, dict: dict1 as NSDictionary, error: nil) { (status, _, _) in
-            XCTAssertTrue(status)
-        }
-    }
-    
-    func testResultValidationWithOutValue() {
-        let item = Item()
-        item.resultValidate(status: false, dict: nil, error: nil) { (status, _, _) in
-            XCTAssertFalse(status)
-        }
-    }
-    
-    func testResultValidationWithError() {
-        let item = Item()
-        let url = "https://http://fyimusi"
-        APIHelper.getMethod(apiUrl: url) { (_, _, staticError) in
-            item.resultValidate(status: false, dict: nil, error: staticError) { (_, _, error) in
-                XCTAssert(error != nil)
-            }
-         }
-        
-    }
 }

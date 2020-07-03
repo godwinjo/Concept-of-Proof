@@ -84,9 +84,10 @@ class ItemDetailsTableViewCell: UITableViewCell {
 // MARK: Set Values
     func setValues(itemDetails: ItemDetails?, titleLabel: UILabel, descLabel: UILabel, imageView: UIImageView) {
         if let details = itemDetails {
-            titleLabel.text = details.itemTitle ?? ""
-            descLabel.text = details.itemDescription ?? ""
-            if let imageUrl = details.itemImage {
+            self.itemDetails = details
+            titleLabel.text = self.itemDetails?.itemTitle ?? ""
+            descLabel.text = self.itemDetails?.itemDescription ?? ""
+            if let imageUrl = self.itemDetails?.itemImage {
                 let url = URL(string: imageUrl)
                 let placeHolder = UIImage(named: "placeHolderImage")
                 imageView.sd_setImage(with: url, placeholderImage: placeHolder, options: SDWebImageOptions(rawValue: 1), completed: nil)
