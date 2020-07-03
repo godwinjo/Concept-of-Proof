@@ -13,33 +13,24 @@ class ItemDetailsTableViewCell: UITableViewCell {
     
     class var identifier: String { return String.className(self) }
     
-    var labelTitle : UILabel!
-    var labelDescription : UILabel!
-    var imageViewItem : UIImageView!
-    var itemDetails : ItemDetails?
+    var labelTitle: UILabel!
+    var labelDescription: UILabel!
+    var imageViewItem: UIImageView!
+    var itemDetails: ItemDetails?
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-//        self.addItemsToView()
-        
-    }
-    
     override func prepareForReuse() {
         super.prepareForReuse()
+        self.reUseControls()
+    }
+    
+    func reUseControls() {
         self.labelTitle.text = nil
         self.labelDescription.text = nil
         self.imageViewItem.image = nil
     }
     
-//MARK:- Add controls in the view
-    func addItemsToView()  {
-        initControlls()
-        setConstrainsts()
-        setValues()
-    }
-    
-//    MARK:- Initialzing controlles
-    func initControlls()  {
+// MARK: Initialzing controlles
+    func initControlls() {
         
         labelTitle = UILabel()
         labelDescription = UILabel()
@@ -51,8 +42,8 @@ class ItemDetailsTableViewCell: UITableViewCell {
         labelTitle.font = UIFont.boldSystemFont(ofSize: 16.0)
         labelDescription.textColor = .gray
         labelDescription.font = UIFont.systemFont(ofSize: 16.0)
-        labelTitle.textAlignment = .center
-        labelDescription.textAlignment = .center
+        labelTitle.textAlignment = .left
+        labelDescription.textAlignment = .left
         
         self.contentView.addSubview(labelTitle)
         self.contentView.addSubview(labelDescription)
@@ -62,43 +53,46 @@ class ItemDetailsTableViewCell: UITableViewCell {
         labelDescription.translatesAutoresizingMaskIntoConstraints = false
         imageViewItem.translatesAutoresizingMaskIntoConstraints = false
         imageViewItem.clipsToBounds = true
-        imageViewItem.layer.masksToBounds = true
-        imageViewItem.contentMode = .scaleAspectFit
+        imageViewItem.contentMode = .scaleAspectFill
+        let views = ["labelTitle": labelTitle, "labelDescription": labelDescription, "imageViewItem": imageViewItem]
+        setConstrainsts(views: views as [String: Any])
+        setValues(itemDetails: itemDetails, titleLabel: labelTitle, descLabel: labelDescription, imageView: imageViewItem)
+        
     }
     
-//    MARK:- Set Constraints
-    func setConstrainsts()  {
-        let views = ["labelTitle" : labelTitle, "labelDescription" : labelDescription, "imageViewItem" : imageViewItem]
+// MARK: Set Constraints
+    func setConstrainsts(views: [String: Any]) {
         var viewConstraints = [NSLayoutConstraint]()
-        let labelTitleHorizontalContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[labelTitle]-10-|", options: [], metrics: nil, views: views as [String : Any])
-        viewConstraints += labelTitleHorizontalContraints
-        let labelDescriptionHorizontalContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[labelDescription]-10-|", options: [], metrics: nil, views: views as [String : Any])
-        viewConstraints += labelDescriptionHorizontalContraints
-        let imageViewItemHorizontalContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[imageViewItem]-10-|", options: [], metrics: nil, views: views as [String : Any])
-        viewConstraints += imageViewItemHorizontalContraints
-        let verticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-10-[labelTitle]-10-[labelDescription]-10-[imageViewItem]-10-|", options: [], metrics: nil, views: views as [String : Any])
-        viewConstraints += verticalConstraints
+        let imageViewVisual = "H:|-10-[imageViewItem(\(screenWidth/2.5))]"
+        let imageViewHC = NSLayoutConstraint.constraints(withVisualFormat: imageViewVisual, options: [], metrics: nil, views: views as [String: Any])
+        viewConstraints += imageViewHC
+        let labelTitleVisual = "H:[imageViewItem]-10-[labelTitle]-10-|"
+        let labelTitlHC = NSLayoutConstraint.constraints(withVisualFormat: labelTitleVisual, options: [], metrics: nil, views: views as [String: Any])
+        viewConstraints += labelTitlHC
+        let decVisual = "H:[imageViewItem]-10-[labelDescription]-10-|"
+        let labelDescHC = NSLayoutConstraint.constraints(withVisualFormat: decVisual, options: [], metrics: nil, views: views as [String: Any])
+        viewConstraints += labelDescHC
+        let verticalVisual = "V:|-10-[labelTitle(18)]-10-[labelDescription]-10-|"
+        let labelVC = NSLayoutConstraint.constraints(withVisualFormat: verticalVisual, options: [], metrics: nil, views: views as [String: Any])
+        viewConstraints += labelVC
+        let imgVerticlVisual = "V:|-10-[imageViewItem]-10-|"
+        let imageViewVC = NSLayoutConstraint.constraints(withVisualFormat: imgVerticlVisual, options: [], metrics: nil, views: views as [String: Any])
+        viewConstraints += imageViewVC
         NSLayoutConstraint.activate(viewConstraints)
     }
     
-//    MARK:- Set Values
-    func setValues()  {
+// MARK: Set Values
+    func setValues(itemDetails: ItemDetails?, titleLabel: UILabel, descLabel: UILabel, imageView: UIImageView) {
         if let details = itemDetails {
-            labelTitle.text = details.itemTitle ?? ""
-            labelDescription.text = details.itemDescription ?? ""
-            if let imageUrl = details.itemImage {
-                imageViewItem.sd_setImage(with: URL(string: imageUrl)) { (image, error, cache, url) in
-                    if let image = image {
-                        self.imageViewItem.image = image
-                    }
-                }
+            self.itemDetails = details
+            titleLabel.text = self.itemDetails?.itemTitle ?? ""
+            descLabel.text = self.itemDetails?.itemDescription ?? ""
+            if let imageUrl = self.itemDetails?.itemImage {
+                let url = URL(string: imageUrl)
+                let placeHolder = UIImage(named: "placeHolderImage")
+                imageView.sd_setImage(with: url, placeholderImage: placeHolder, options: SDWebImageOptions(rawValue: 1), completed: nil)
             }
         }
-    }
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

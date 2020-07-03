@@ -10,7 +10,6 @@
 		4536B2ED29CD0193AE766C0B /* Pods_Concept_of_ProofTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B5D61357692B79F89F26F7 /* Pods_Concept_of_ProofTests.framework */; };
 		48165301E5CFE212B569B87E /* Pods_Concept_of_Proof_Concept_of_ProofUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 139C4CFC28C9F126D9BC512D /* Pods_Concept_of_Proof_Concept_of_ProofUITests.framework */; };
 		FA63784024AC61D4006A0DE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA63783F24AC61D4006A0DE6 /* AppDelegate.swift */; };
-		FA63784224AC61D4006A0DE6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA63784124AC61D4006A0DE6 /* SceneDelegate.swift */; };
 		FA63784624AC61DA006A0DE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA63784524AC61DA006A0DE6 /* Assets.xcassets */; };
 		FA63784924AC61DA006A0DE6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA63784824AC61DA006A0DE6 /* Preview Assets.xcassets */; };
 		FA63784C24AC61DA006A0DE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA63784A24AC61DA006A0DE6 /* LaunchScreen.storyboard */; };
@@ -55,7 +54,6 @@
 		F7143B888F4854A456DBE960 /* Pods-Concept of Proof-Concept of ProofUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Concept of Proof-Concept of ProofUITests.release.xcconfig"; path = "Target Support Files/Pods-Concept of Proof-Concept of ProofUITests/Pods-Concept of Proof-Concept of ProofUITests.release.xcconfig"; sourceTree = "<group>"; };
 		FA63783C24AC61D4006A0DE6 /* Concept of Proof.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Concept of Proof.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA63783F24AC61D4006A0DE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FA63784124AC61D4006A0DE6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FA63784524AC61DA006A0DE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA63784824AC61DA006A0DE6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FA63784B24AC61DA006A0DE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -155,7 +153,6 @@
 				FA63787324AC624B006A0DE6 /* Helper Classes */,
 				FA63786F24AC6224006A0DE6 /* MVC */,
 				FA63783F24AC61D4006A0DE6 /* AppDelegate.swift */,
-				FA63784124AC61D4006A0DE6 /* SceneDelegate.swift */,
 				FA63784524AC61DA006A0DE6 /* Assets.xcassets */,
 				FA63784A24AC61DA006A0DE6 /* LaunchScreen.storyboard */,
 				FA63784D24AC61DA006A0DE6 /* Info.plist */,
@@ -254,6 +251,7 @@
 				FA63783924AC61D4006A0DE6 /* Frameworks */,
 				FA63783A24AC61D4006A0DE6 /* Resources */,
 				572C9E2A081CEAB5FBABB8D9 /* [CP] Embed Pods Frameworks */,
+				FA842B2824ADF6A500254434 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -322,7 +320,6 @@
 					};
 					FA63785C24AC61DA006A0DE6 = {
 						CreatedOnToolsVersion = 11.1;
-						TestTargetID = FA63783B24AC61D4006A0DE6;
 					};
 				};
 			};
@@ -474,6 +471,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		FA842B2824ADF6A500254434 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -487,7 +501,6 @@
 				FA63787824AC63C5006A0DE6 /* APIUrls.swift in Sources */,
 				FA63784024AC61D4006A0DE6 /* AppDelegate.swift in Sources */,
 				FA63787A24AC6487006A0DE6 /* ItemDetails.swift in Sources */,
-				FA63784224AC61D4006A0DE6 /* SceneDelegate.swift in Sources */,
 				FA63788024AC68DC006A0DE6 /* HomeTableViewController.swift in Sources */,
 				FA63787C24AC6680006A0DE6 /* Extensions.swift in Sources */,
 			);
@@ -659,6 +672,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Concept of Proof/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Concept of Proof/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -679,6 +693,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Concept of Proof/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Concept of Proof/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -748,9 +763,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Godwin.Concept-of-ProofUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Concept of Proof";
 			};
 			name = Debug;
 		};
@@ -768,9 +783,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Godwin.Concept-of-ProofUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Concept of Proof";
 			};
 			name = Release;
 		};

@@ -10,8 +10,8 @@ import UIKit
 
 class HomeTableViewController: UITableViewController {
     
-    var item : Item?
-    var pageTitle : String = "" {
+    var item: Item?
+    var pageTitle: String = "" {
         didSet {
             setPageTitle()
         }
@@ -20,71 +20,40 @@ class HomeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
-        self.getItems()
+        setDataSourceandDelegate()
+        
     }
     
-//    MARK:- Set Page Title
-    func setPageTitle()  {
-        self.title = pageTitle
-    }
-
-//    MARK:- Get Items
-    func getItems()  {
-        APIManager.getItemsList { (status, result, error) in
-            
-            if error != nil {
+    // MARK: Get Items
+    func setDataSourceandDelegate() {
+        item = Item()
+        self.tableView.dataSource = item
+        self.tableView.delegate = item
+        item?.getItems { (status, pageTitle, error) in
+            if status == true {
+                if let title = pageTitle {
+                    DispatchQueue.main.async {
+                        self.pageTitle = title
+                        self.tableView.reloadData()
+                    }
+                }
+            } else {
                 self.showAlert(title: "Alert", message: error!.localizedDescription)
-                return
             }
-            if let dict = result {
-                self.item = Item(dict: dict)
-            }
-            DispatchQueue.main.async {
-                self.pageTitle = self.item?.itemTitle ?? ""
-                self.tableView.reloadData()
-            }
-            
         }
     }
     
-//    MARK:- Configure TableView
-    func configureTableView()  {
-        self.tableView.estimatedRowHeight = 40
+// MARK: Set Page Title
+    func setPageTitle() {
+        self.title = pageTitle
+    }
+        
+// MARK: Configure TableView
+    func configureTableView() {
+        self.tableView.tableFooterView = UIView()
+        self.tableView.estimatedRowHeight = 20
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.register(ItemDetailsTableViewCell.self, forCellReuseIdentifier: ItemDetailsTableViewCell.identifier)
     }
     
-    
-}
-
-extension HomeTableViewController {
-//    MARK:- TableView DataSource
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if item != nil && item?.itemDetails != nil {
-            return item!.itemDetails!.count
-        }
-        return 0
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ItemDetailsTableViewCell.identifier, for: indexPath) as! ItemDetailsTableViewCell
-        cell.selectionStyle = .none
-        cell.itemDetails = item?.itemDetails![indexPath.row]
-        cell.addItemsToView()
-        return cell
-    }
-    
-//    MARK:- TableView Delegate
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-}
-
-extension HomeTableViewController {
-//    MARK:- Alert
-    func showAlert(title:String,message:String)  {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
 }

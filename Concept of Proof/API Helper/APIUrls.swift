@@ -8,10 +8,7 @@
 
 import Foundation
 
-//MARK:- API list
-enum APIUrl:String {
+// MARK: API list
+enum APIUrl: String {
     case listApi = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"
 }
-
-
-
