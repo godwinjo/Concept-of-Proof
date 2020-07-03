@@ -20,12 +20,12 @@ class HomeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
-        getItems()
+        setDataSourceandDelegate()
         
     }
     
     // MARK: Get Items
-    func getItems() {
+    func setDataSourceandDelegate() {
         item = Item()
         self.tableView.dataSource = item
         self.tableView.delegate = item
@@ -50,18 +50,10 @@ class HomeTableViewController: UITableViewController {
         
 // MARK: Configure TableView
     func configureTableView() {
+        self.tableView.tableFooterView = UIView()
         self.tableView.estimatedRowHeight = 20
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.register(ItemDetailsTableViewCell.self, forCellReuseIdentifier: ItemDetailsTableViewCell.identifier)
     }
     
-}
-
-extension HomeTableViewController {
-// MARK: Alert
-    func showAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
 }

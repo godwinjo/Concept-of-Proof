@@ -320,7 +320,6 @@
 					};
 					FA63785C24AC61DA006A0DE6 = {
 						CreatedOnToolsVersion = 11.1;
-						TestTargetID = FA63783B24AC61D4006A0DE6;
 					};
 				};
 			};
@@ -767,7 +766,6 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Concept of Proof";
 			};
 			name = Debug;
 		};
@@ -788,7 +786,6 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Concept of Proof";
 			};
 			name = Release;
 		};
