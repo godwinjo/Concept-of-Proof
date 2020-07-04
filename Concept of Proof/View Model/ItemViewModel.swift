@@ -15,19 +15,19 @@ class ItemViewModel: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: Get Items
     func getItems(completion: @escaping (_ status: Bool, _ pageTitle: String?, _ error: Error?) -> Void) {
-        APIManager.getItemsList { (status, result, error) in
-            self.resultValidate(status: status, dict: result, error: error) { (status, title, error) in
+        APIManager.getItemsList { (status, item, error) in
+            self.resultValidate(status: status, item: item, error: error) { (status, title, error) in
                 completion(status, title, error)
             }
         }
     }
     
     // MARK: Result Validation
-    func resultValidate(status: Bool, dict: [String: Any]?, error: Error?, completion: @escaping (_ status: Bool, _ pageTitle: String?, _ error: Error?) -> Void) {
+    func resultValidate(status: Bool, item: Item?, error: Error?, completion: @escaping (_ status: Bool, _ pageTitle: String?, _ error: Error?) -> Void) {
         if status == true {
-        if let dict = dict {
-            self.item = Item(dict: dict)
-            completion(true, self.item?.itemTitle ?? "", nil)
+        if let itm = item {
+            self.item = itm
+            completion(true, self.item?.title, nil)
         }
         } else {
             completion(false, nil, error)
@@ -36,11 +36,11 @@ class ItemViewModel: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: TableView DataSource
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return self.getNumberOfRows(itemDetails: self.item?.itemDetails)
+            return self.getNumberOfRows(itemDetails: self.item?.rows)
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            if let itemDeatils = self.item?.itemDetails?[indexPath.row] {
+            if let itemDeatils = self.item?.rows?[indexPath.row] {
                 return self.setCells(tableView: tableView, indexPath: indexPath, itemDetails: itemDeatils)
             }
             return UITableViewCell()

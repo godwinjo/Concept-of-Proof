@@ -9,43 +9,23 @@
 import Foundation
 
 // MARK: Item Model
-struct Item {
+struct Item: Codable {
     
-    var itemTitle: String?
-    var itemDetails: [ItemDetails]?
+    var title: String?
+    var rows: [ItemDetails]?
     
-    // MARK: initialize values
-    init(dict: [String: Any]) {
-        self.itemTitle = dict["title"] as? String
-        if let rows = dict["rows"] as? [[String: Any]] {
-            itemDetails = [ItemDetails]()
-            for row in rows {
-                let itemDetail = ItemDetails(dict: row)
-                if itemDetail.valuesCheck() {
-                    itemDetails?.append(itemDetail)
-                }
-            }
-        }
-    }
 }
 
 // MARK: Item Details Model
-struct ItemDetails {
+struct ItemDetails: Codable {
     
-    var itemTitle: String?
-    var itemDescription: String?
-    var itemImage: String?
-    
-    // MARK: initialize values
-    init(dict: [String: Any]) {
-        self.itemTitle = dict["title"] as? String
-        self.itemDescription = dict["description"] as? String
-        self.itemImage = dict["imageHref"] as? String
-    }
-    
+    var title: String?
+    var description: String?
+    var imageHref: String?
+
     // MARK: Values check
     func valuesCheck() -> Bool {
-        if self.itemTitle == nil && self.itemDescription == nil && self.itemImage == nil {
+        if self.title == nil && self.title == nil && self.title == nil {
             return false
         }
         return true
