@@ -23,12 +23,4 @@ struct ItemDetails: Decodable {
     var description: String?
     var imageHref: String?
 
-    // MARK: Values check
-    func valuesCheck() -> Bool {
-        if self.title == nil && self.title == nil && self.title == nil {
-            return false
-        }
-        return true
-    }
-
 }

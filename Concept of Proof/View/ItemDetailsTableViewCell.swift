@@ -75,7 +75,7 @@ class ItemDetailsTableViewCell: UITableViewCell {
         let verticalVisual = "V:|-10-[labelTitle(18)]-5-[labelDescription]->=10-|"
         let labelVC = NSLayoutConstraint.constraints(withVisualFormat: verticalVisual, options: [], metrics: nil, views: views as [String: Any])
         viewConstraints += labelVC
-        let imgVerticlVisual = "V:|-10-[imageViewItem(150)]-10-|"
+        let imgVerticlVisual = "V:|-10-[imageViewItem(150)]->=10-|"
         let imageViewVC = NSLayoutConstraint.constraints(withVisualFormat: imgVerticlVisual, options: [], metrics: nil, views: views as [String: Any])
         viewConstraints += imageViewVC
         NSLayoutConstraint.activate(viewConstraints)

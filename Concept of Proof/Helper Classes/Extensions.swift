@@ -15,7 +15,7 @@ let screenWidth = UIScreen.main.bounds.width
 // MARK: String extension
 extension String {
     static func className(_ aClass: AnyClass) -> String {
-        return NSStringFromClass(aClass).components(separatedBy: ".").last!
+       return NSStringFromClass(aClass).components(separatedBy: ".").last ?? ""
     }
 }
 
