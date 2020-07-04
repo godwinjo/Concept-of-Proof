@@ -14,23 +14,23 @@ class ItemViewModel: NSObject, UITableViewDataSource, UITableViewDelegate {
     var item: Item?
     
     // MARK: Get Items
-    func getItems(completion: @escaping (_ status: Bool, _ pageTitle: String?, _ error: Error?) -> Void) {
-        APIManager.getItemsList { (status, item, error) in
-            self.resultValidate(status: status, item: item, error: error) { (status, title, error) in
-                completion(status, title, error)
+    func getItems(completion: @escaping (_ status: Bool, _ pageTitle: String?, _ errorMessage: String?) -> Void) {
+        APIManager.getItemsList { (status, item, errorMessage) in
+            self.resultValidate(status: status, item: item, errorMessage: errorMessage) { (status, title, errorMessage) in
+                completion(status, title, errorMessage)
             }
         }
     }
     
     // MARK: Result Validation
-    func resultValidate(status: Bool, item: Item?, error: Error?, completion: @escaping (_ status: Bool, _ pageTitle: String?, _ error: Error?) -> Void) {
+    func resultValidate(status: Bool, item: Item?, errorMessage: String?, completion: @escaping (_ status: Bool, _ pageTitle: String?, _ errorMessage: String?) -> Void) {
         if status == true {
         if let itm = item {
             self.item = itm
             completion(true, self.item?.title, nil)
         }
         } else {
-            completion(false, nil, error)
+            completion(false, nil, errorMessage)
         }
     }
     

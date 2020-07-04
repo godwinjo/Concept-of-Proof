@@ -30,7 +30,7 @@ class HomeTableViewController: UITableViewController {
         itemViewModel = ItemViewModel()
         self.tableView.dataSource = itemViewModel
         self.tableView.delegate = itemViewModel
-        itemViewModel?.getItems { (status, pageTitle, error) in
+        itemViewModel?.getItems { (status, pageTitle, errorMessage) in
             self.refreshcontrl.endRefreshing()
             if status == true {
                 if let title = pageTitle {
@@ -40,8 +40,8 @@ class HomeTableViewController: UITableViewController {
                     }
                 }
             } else {
-                if let eror = error {
-                    self.showAlert(title: "Alert", message: eror.localizedDescription)
+                if let errorMsg = errorMessage {
+                    self.showAlert(title: "Alert", message: errorMsg)
                 }
             }
         }

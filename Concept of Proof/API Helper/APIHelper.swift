@@ -12,27 +12,27 @@ import Alamofire
 class APIHelper {
     
     // MARK: Get Method
-    class func getMethod(apiUrl: String, completion:@escaping (_ status: Bool, _ item: Item?, _ error: Error?) -> Void) {
-    APIHelper.alamofireGetAPI(url: APIUrl.listApi.rawValue) { (status, item, error) in
-        completion(status, item, error)
+    class func getMethod(apiUrl: String, completion:@escaping (_ status: Bool, _ item: Item?, _ errorMessage: String?) -> Void) {
+    APIHelper.alamofireGetAPI(url: APIUrl.listApi.rawValue) { (status, item, errorMessage) in
+        completion(status, item, errorMessage)
         }
     }
     
     // MARK: Alamofire GET method
-    class func alamofireGetAPI(url: String, completion:@escaping (_ status: Bool, _ item: Item?, _ error: Error?) -> Void) {
+    class func alamofireGetAPI(url: String, completion:@escaping (_ status: Bool, _ item: Item?, _ errorMessage: String?) -> Void) {
         Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseData { (responseData) in
             if let data = responseData.result.value {
-                APIHelper.jsonDecoding(data: data) { (status, item, error) in
-                    completion(status, item, error)
+                APIHelper.jsonDecoding(data: data) { (status, item, errorMessage) in
+                    completion(status, item, errorMessage)
                 }
             } else if let eror = responseData.error {
-                completion(false, nil, eror)
+                completion(false, nil, getCustomeErrorMessage(error: eror))
             }
         }
     }
     
     // MARK: JSON Decoding
-    class func jsonDecoding(data: Data, completion:@escaping (_ status: Bool, _ item: Item?, _ error: Error?) -> Void) {
+    class func jsonDecoding(data: Data, completion:@escaping (_ status: Bool, _ item: Item?, _ errorMessage: String?) -> Void) {
         do {
             let datastring = String(data: data, encoding: String.Encoding.isoLatin1)
             if let stringData = datastring?.data(using: String.Encoding.utf8) {
@@ -42,8 +42,7 @@ class APIHelper {
                 completion(true, item, nil)
             }
         } catch let error {
-            completion(false, nil, error)
+            completion(false, nil, getCustomeErrorMessage(error: error))
         }
     }
-    
 }

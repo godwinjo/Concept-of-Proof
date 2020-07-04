@@ -9,7 +9,7 @@
 import Foundation
 
 // MARK: Item Model
-struct Item: Codable {
+struct Item: Decodable {
     
     var title: String?
     var rows: [ItemDetails]?
@@ -17,7 +17,7 @@ struct Item: Codable {
 }
 
 // MARK: Item Details Model
-struct ItemDetails: Codable {
+struct ItemDetails: Decodable {
     
     var title: String?
     var description: String?
