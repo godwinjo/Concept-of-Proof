@@ -39,9 +39,9 @@ class ItemDetailsTableViewCell: UITableViewCell {
         labelDescription.numberOfLines = 0
         labelTitle.numberOfLines = 0
         labelTitle.textColor = .black
-        labelTitle.font = UIFont.boldSystemFont(ofSize: 16.0)
+        labelTitle.font = UIFont.boldSystemFont(ofSize: 15.0)
         labelDescription.textColor = .gray
-        labelDescription.font = UIFont.systemFont(ofSize: 16.0)
+        labelDescription.font = UIFont.systemFont(ofSize: 15.0)
         labelTitle.textAlignment = .left
         labelDescription.textAlignment = .left
         
@@ -56,7 +56,7 @@ class ItemDetailsTableViewCell: UITableViewCell {
         imageViewItem.contentMode = .scaleAspectFill
         let views = ["labelTitle": labelTitle, "labelDescription": labelDescription, "imageViewItem": imageViewItem]
         setConstrainsts(views: views as [String: Any])
-        setValues(itemDetails: itemDetails, titleLabel: labelTitle, descLabel: labelDescription, imageView: imageViewItem)
+        setValues(itemDetails: itemDetails, titleLabel: labelTitle, descLabel: labelDescription, itemImageView: imageViewItem)
         
     }
     
@@ -72,25 +72,27 @@ class ItemDetailsTableViewCell: UITableViewCell {
         let decVisual = "H:[imageViewItem]-10-[labelDescription]-10-|"
         let labelDescHC = NSLayoutConstraint.constraints(withVisualFormat: decVisual, options: [], metrics: nil, views: views as [String: Any])
         viewConstraints += labelDescHC
-        let verticalVisual = "V:|-10-[labelTitle(18)]-10-[labelDescription]-10-|"
+        let verticalVisual = "V:|-10-[labelTitle(18)]-5-[labelDescription]->=10-|"
         let labelVC = NSLayoutConstraint.constraints(withVisualFormat: verticalVisual, options: [], metrics: nil, views: views as [String: Any])
         viewConstraints += labelVC
-        let imgVerticlVisual = "V:|-10-[imageViewItem]-10-|"
+        let imgVerticlVisual = "V:|-10-[imageViewItem(150)]->=10-|"
         let imageViewVC = NSLayoutConstraint.constraints(withVisualFormat: imgVerticlVisual, options: [], metrics: nil, views: views as [String: Any])
         viewConstraints += imageViewVC
         NSLayoutConstraint.activate(viewConstraints)
     }
     
 // MARK: Set Values
-    func setValues(itemDetails: ItemDetails?, titleLabel: UILabel, descLabel: UILabel, imageView: UIImageView) {
+    func setValues(itemDetails: ItemDetails?, titleLabel: UILabel, descLabel: UILabel, itemImageView: UIImageView) {
         if let details = itemDetails {
             self.itemDetails = details
-            titleLabel.text = self.itemDetails?.itemTitle ?? ""
-            descLabel.text = self.itemDetails?.itemDescription ?? ""
-            if let imageUrl = self.itemDetails?.itemImage {
+            titleLabel.text = self.itemDetails?.title ?? ""
+            descLabel.text = self.itemDetails?.description ?? ""
+            let placeHolder = UIImage(named: "placeHolderImage")
+            if let imageUrl = self.itemDetails?.imageHref {
                 let url = URL(string: imageUrl)
-                let placeHolder = UIImage(named: "placeHolderImage")
-                imageView.sd_setImage(with: url, placeholderImage: placeHolder, options: SDWebImageOptions(rawValue: 1), completed: nil)
+                itemImageView.sd_setImage(with: url, placeholderImage: placeHolder, options: SDWebImageOptions(rawValue: 1), completed: nil)
+            } else {
+                itemImageView.image = placeHolder
             }
         }
     }

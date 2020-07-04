@@ -23,33 +23,48 @@ class ConceptofProofTests: XCTestCase {
     }
     
     func testinitializerItemDetails() {
-        
-        let dict = ["title": "firt item", "description": "first item description", "imageHref": "https://http://fyimusic.ca/wp-content/uploads/2008/06/hockey-night-in-canada.thumbnail.jpg"]
-        let itemDetails = ItemDetails(dict: dict as NSDictionary)
-        XCTAssert(itemDetails.itemTitle == dict["title"])
-        XCTAssert(itemDetails.itemDescription == dict["description"])
-        XCTAssert(itemDetails.itemImage == dict["imageHref"])
+        let title = "firt item"
+        let description = "item description"
+        let imaheHref = "https://http://fyimusic.ca/wp-content/uploads/2008/06/hockey-night-in-canada.thumbnail.jpg"
+        let itemDetails = ItemDetails(title: title, description: description, imageHref: imaheHref)
+        XCTAssert(itemDetails.title == title)
+        XCTAssert(itemDetails.description == description)
+        XCTAssert(itemDetails.imageHref == imaheHref)
     }
     
     func testinitializerItem() {
-        let dict = ["title": "firt item", "description": "first item description", "imageHref": "https://http://fyimusic.ca/wp-content/uploads/2008/06/hockey-night-in-canada.thumbnail.jpg"]
-        let itemDetails = ItemDetails(dict: dict as NSDictionary)
-        let array = [itemDetails]
-        let dict1 = ["title": "firt item", "rows": [array]] as [String: Any]
-        let item = Item()
-        item.initValues(dict: dict1 as NSDictionary)
-        XCTAssert(item.itemTitle == dict1["title"] as? String)
+        let title = "firt item"
+        let itemDetails = ItemDetails(title: title, description: "item description", imageHref: "https://http://fyimusic.ca/wp-content/uploads/2008/06/hockey-night-in-canada.thumbnail.jpg")
+        let rows = [itemDetails]
+        let item = Item(title: title, rows: rows)
+        XCTAssert(item.title == title)
     }
 
     func testGetAPIStatusTrue() {
         let url = APIUrl.listApi.rawValue
         let expectation = self.expectation(description: "getting items from service")
-        APIHelper.getMethod(apiUrl: url) { (status, _, _) in
+        APIHelper.alamofireGetAPI(url: url) { (status, _, _) in
             XCTAssertTrue(status)
             expectation.fulfill()
         }
         waitForExpectations(timeout: 5) { (error) in
-            XCTAssertNil(error, error!.localizedDescription)
+            if let eror = error {
+                print(eror)
+            }
+        }
+    }
+    
+    func testGetAPIStatusFalse() {
+        let url = ""
+        let expectation = self.expectation(description: "getting items from service")
+        APIHelper.alamofireGetAPI(url: url) { (status, _, _) in
+            XCTAssertFalse(status)
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 5) { (error) in
+            if let eror = error {
+                print(eror)
+            }
         }
     }
     
@@ -62,7 +77,7 @@ class ConceptofProofTests: XCTestCase {
     
     func testTableViewDataSource() {
         let homeVc = HomeTableViewController()
-        XCTAssertTrue(homeVc.tableView.dataSource is Item)
+        XCTAssertTrue(homeVc.tableView.dataSource is ItemViewModel)
     }
     
     func testAlertView() {
@@ -81,11 +96,11 @@ class ConceptofProofTests: XCTestCase {
         cell.contentView.addSubview(imageViewItem)
         cell.initControlls()
         cell.setConstrainsts(views: views)
-        let dict = ["title": nil, "description": nil, "imageHref": "https://http://fyimusic.ca/wp-content/uploads/2008/06/hockey-night-in-canada.thumbnail.jpg"]
-               let itemDetails = ItemDetails(dict: dict as NSDictionary)
-        cell.setValues(itemDetails: itemDetails, titleLabel: labelTitle, descLabel: labelDescription, imageView: imageViewItem)
+        let imageHref = "https://http://fyimusic.ca/wp-content/uploads/2008/06/hockey-night-in-canada.thumbnail.jpg"
+        let itemDetails = ItemDetails(title: nil, description: nil, imageHref: imageHref)
+        cell.setValues(itemDetails: itemDetails, titleLabel: labelTitle, descLabel: labelDescription, itemImageView: imageViewItem)
         cell.reUseControls()
-        XCTAssertEqual(dict["title"], cell.itemDetails?.itemTitle)
+        XCTAssertEqual(imageHref, cell.itemDetails?.imageHref)
     }
     
     func testTableViewCellwithValue() {
@@ -99,35 +114,33 @@ class ConceptofProofTests: XCTestCase {
         cell.contentView.addSubview(imageViewItem)
         cell.initControlls()
         cell.setConstrainsts(views: views)
-        let dict = ["title": "first Item", "description": "Item Description", "imageHref": "https://http://fyimusic.ca/wp-content/uploads/2008/06/hockey-night-in-canada.thumbnail.jpg"]
-               let itemDetails = ItemDetails(dict: dict as NSDictionary)
-        cell.setValues(itemDetails: itemDetails, titleLabel: labelTitle, descLabel: labelDescription, imageView: imageViewItem)
+        let title = "first Item"
+        let itemDetails = ItemDetails(title: "first Item", description: "Item Description", imageHref: "https://http://fyimusic.ca/wp-content/uploads/2008/06/hockey-night-in-canada.thumbnail.jpg")
+        cell.setValues(itemDetails: itemDetails, titleLabel: labelTitle, descLabel: labelDescription, itemImageView: imageViewItem)
         cell.reUseControls()
-        XCTAssertEqual(dict["title"], cell.itemDetails?.itemTitle)
+        XCTAssertEqual(title, cell.itemDetails?.title)
     }
     
     func testTabelViewCellValues() {
-        let item = Item()
+        let itemViewModel = ItemViewModel()
         let tableView = UITableView()
         tableView.register(ItemDetailsTableViewCell.self, forCellReuseIdentifier: ItemDetailsTableViewCell.identifier)
         let indexPath = IndexPath(row: 0, section: 0)
-        let dict = ["title": nil, "description": nil, "imageHref": "https://http://fyimusic.ca/wp-content/uploads/2008/06/hockey-night-in-canada.thumbnail.jpg"]
-        let itemDetails = ItemDetails(dict: dict as NSDictionary)
-        let cell = item.setCells(tableView: tableView, indexPath: indexPath, itemDetails: itemDetails)
+        let itemDetails = ItemDetails(title: nil, description: nil, imageHref: "https://http://fyimusic.ca/wp-content/uploads/2008/06/hockey-night-in-canada.thumbnail.jpg")
+        let cell = itemViewModel.setCells(tableView: tableView, indexPath: indexPath, itemDetails: itemDetails)
         XCTAssertNotNil(cell)
     }
     
     func testNumberOfRowsWithNilValue() {
-        let item = Item()
-        let count = item.getNumberOfRows(itemDetails: nil)
+        let itemViewModel = ItemViewModel()
+        let count = itemViewModel.getNumberOfRows(itemDetails: nil)
         XCTAssertEqual(count, 0)
     }
     
     func testNumberOfRowsWithValue() {
-        let item = Item()
-        let dict = ["title": nil, "description": nil, "imageHref": "https://http://fyimusic.ca/wp-content/uploads/2008/06/hockey-night-in-canada.thumbnail.jpg"]
-        let itemDetails = ItemDetails(dict: dict as NSDictionary)
-        let count = item.getNumberOfRows(itemDetails: [itemDetails])
+        let itemViewModel = ItemViewModel()
+        let itemDetails = ItemDetails(title: nil, description: nil, imageHref: "https://http://fyimusic.ca/wp-content/uploads/2008/06/hockey-night-in-canada.thumbnail.jpg")
+        let count = itemViewModel.getNumberOfRows(itemDetails: [itemDetails])
         XCTAssertEqual(count, 1)
     }
     
