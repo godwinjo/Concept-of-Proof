@@ -39,11 +39,16 @@ class ItemDetailsTableViewCell: UITableViewCell {
         labelDescription.numberOfLines = 0
         labelTitle.numberOfLines = 0
         labelTitle.textColor = .black
-        labelTitle.font = UIFont.boldSystemFont(ofSize: 15.0)
         labelDescription.textColor = .gray
-        labelDescription.font = UIFont.systemFont(ofSize: 15.0)
         labelTitle.textAlignment = .left
         labelDescription.textAlignment = .left
+        if deviceType == .pad {
+            labelTitle.font = UIFont.boldSystemFont(ofSize: 22.0)
+            labelDescription.font = UIFont.systemFont(ofSize: 22.0)
+        } else {
+            labelTitle.font = UIFont.boldSystemFont(ofSize: 15.0)
+            labelDescription.font = UIFont.systemFont(ofSize: 15.0)
+        }
         
         self.contentView.addSubview(labelTitle)
         self.contentView.addSubview(labelDescription)
@@ -72,10 +77,10 @@ class ItemDetailsTableViewCell: UITableViewCell {
         let decVisual = "H:[imageViewItem]-10-[labelDescription]-10-|"
         let labelDescHC = NSLayoutConstraint.constraints(withVisualFormat: decVisual, options: [], metrics: nil, views: views as [String: Any])
         viewConstraints += labelDescHC
-        let verticalVisual = "V:|-10-[labelTitle(18)]-5-[labelDescription]->=10-|"
+        let verticalVisual = "V:|-10-[labelTitle]-5-[labelDescription]->=10-|"
         let labelVC = NSLayoutConstraint.constraints(withVisualFormat: verticalVisual, options: [], metrics: nil, views: views as [String: Any])
         viewConstraints += labelVC
-        let imgVerticlVisual = "V:|-10-[imageViewItem(150)]->=10-|"
+        let imgVerticlVisual = "V:|-10-[imageViewItem(\(screenWidth/2.5))]->=10-|"
         let imageViewVC = NSLayoutConstraint.constraints(withVisualFormat: imgVerticlVisual, options: [], metrics: nil, views: views as [String: Any])
         viewConstraints += imageViewVC
         NSLayoutConstraint.activate(viewConstraints)
