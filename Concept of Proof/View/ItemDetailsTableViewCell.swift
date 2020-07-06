@@ -53,7 +53,7 @@ class ItemDetailsTableViewCell: UITableViewCell {
         self.contentView.addSubview(labelTitle)
         self.contentView.addSubview(labelDescription)
         self.contentView.addSubview(imageViewItem)
-        
+        self.separatorInset = UIEdgeInsets.zero
         labelTitle.translatesAutoresizingMaskIntoConstraints = false
         labelDescription.translatesAutoresizingMaskIntoConstraints = false
         imageViewItem.translatesAutoresizingMaskIntoConstraints = false
