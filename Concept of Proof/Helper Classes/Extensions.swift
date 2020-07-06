@@ -11,6 +11,7 @@ import UIKit
 
 // MARK: Constants
 let screenWidth = UIScreen.main.bounds.width
+let deviceType = UIDevice.current.userInterfaceIdiom
 
 // MARK: String extension
 extension String {

@@ -10,10 +10,6 @@ import XCTest
 @testable import Concept_of_Proof
 
 class ConceptofProofTests: XCTestCase {
-    
-    override class func setUp() {
-        
-    }
 
     func testAPIServiceName() {
         var apiServiceName: String?
